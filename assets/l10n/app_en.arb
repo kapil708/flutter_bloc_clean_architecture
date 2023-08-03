@@ -1,0 +1,14 @@
+{
+  "home": "Home",
+  "settings": "Settings",
+  "chooseLanguage": "Choose Prefered Language",
+  "language": "Language",
+  "theme": "Theme",
+  "welcomeUser": "Welcome {name}",
+  "@welcomeUser": {"placeholders": {"name": {"type": "String"}}},
+
+  "stringWith1Param": "Here is 1st {name}",
+  "@stringWith1Param": {"placeholders": {"name": {"type": "String"}}},
+  "stringWith2Param": "Here is 1st {name} and here is 2nd {name1}",
+  "@stringWith2Param": {"placeholders": {"name": {"type": "String"},"name1": {"type": "String"}}}
+}
