@@ -1,5 +1,5 @@
-const String baseUrl = 'https://develop.carerockets.com/api';
+import '../../environment.dart';
 
 class ApiMethods {
-  static const String login = '$baseUrl/login';
+  static String login = '${Environment.apiUrl}/login';
 }
