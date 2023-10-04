@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
-import 'package:flutter_bloc_clean_architecture/core/error/failures.dart';
-import 'package:flutter_bloc_clean_architecture/domain/entities/login_entity.dart';
 
 import '../../core/error/exceptions.dart';
+import '../../core/error/failures.dart';
 import '../../core/network/network_info.dart';
+import '../../domain/entities/login_entity.dart';
 import '../../domain/repositories/user_repository.dart';
 import '../data_sources/remote_data_source.dart';
 

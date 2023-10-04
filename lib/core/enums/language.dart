@@ -4,7 +4,7 @@ import '../assets/image_assets.dart';
 
 enum Language {
   english(Locale('en', 'US'), ImageAssets.english, 'English'),
-  indonesia(Locale('id', 'ID'), ImageAssets.indonesia, 'Indonesia');
+  indonesia(Locale('hi', 'IN'), ImageAssets.hindi, 'हिंदी');
 
   const Language(this.value, this.image, this.text);
 

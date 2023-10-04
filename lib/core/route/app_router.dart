@@ -1,8 +1,8 @@
-import 'package:flutter_bloc_clean_architecture/presentation/pages/settings/settings_page.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../data/data_sources/local_data_source.dart';
 import '../../injection_container.dart';
+import '../../presentation/pages/settings/settings_page.dart';
 import 'page_list.dart';
 import 'route_names.dart';
 
