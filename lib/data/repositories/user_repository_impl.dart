@@ -14,18 +14,16 @@ class UserRepositoryImpl implements UserRepository {
   UserRepositoryImpl({required this.remoteDataSource, required this.networkInfo});
 
   @override
-  Future<Either<Failure, LoginEntity>> login(Map<String, dynamic> body) async {
+  Future<Either<RemoteFailure, LoginEntity>> login(Map<String, dynamic> body) async {
     if (await networkInfo.isConnected) {
       try {
         final login = await remoteDataSource.login(body);
         return Right(login);
-      } on ValidationException catch (e) {
-        return Left(ValidationFailure(errors: e.errors, message: e.message));
-      } on ServerException catch (e) {
-        return Left(ServerFailure(statusCode: e.statusCode, message: e.message));
+      } on RemoteException catch (e) {
+        return Left(RemoteFailure(statusCode: e.statusCode, message: e.message));
       }
     } else {
-      return Left(NetworkFailure());
+      return const Left(RemoteFailure(statusCode: 12163, message: 'No internet connection.'));
     }
   }
 }

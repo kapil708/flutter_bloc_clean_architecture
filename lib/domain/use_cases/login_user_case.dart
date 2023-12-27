@@ -9,7 +9,7 @@ class LoginUseCase {
 
   LoginUseCase({required this.userRepository});
 
-  Future<Either<Failure, LoginEntity>> call(Map<String, dynamic> body) async {
+  Future<Either<RemoteFailure, LoginEntity>> call(Map<String, dynamic> body) async {
     return userRepository.login(body);
   }
 }

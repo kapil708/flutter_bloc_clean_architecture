@@ -1,21 +1,9 @@
-class ServerException implements Exception {
+class RemoteException implements Exception {
   final int statusCode;
   final String message;
 
-  ServerException({
+  RemoteException({
     required this.statusCode,
     required this.message,
   });
 }
-
-class ValidationException implements Exception {
-  final dynamic errors;
-  final String message;
-
-  ValidationException({
-    this.errors,
-    required this.message,
-  });
-}
-
-class CacheException implements Exception {}

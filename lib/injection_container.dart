@@ -8,7 +8,7 @@ import 'data/data_sources/local_data_source.dart';
 import 'data/data_sources/remote_data_source.dart';
 import 'data/repositories/user_repository_impl.dart';
 import 'domain/repositories/user_repository.dart';
-import 'domain/usecases/login_usercase.dart';
+import 'domain/use_cases/login_user_case.dart';
 import 'presentation/bloc/login/login_bloc.dart';
 
 final GetIt locator = GetIt.instance;

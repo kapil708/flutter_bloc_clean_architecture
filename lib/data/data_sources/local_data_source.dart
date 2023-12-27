@@ -6,6 +6,7 @@ abstract class LocalDataSource {
   Future<bool> isLogin();
   String? getAuthToken();
   Future<void> removeAuthToken();
+  Future<void> removeUser();
   Future<void> cacheAuthToken(String authToken);
   Future<void> cacheLanguage(String languageCode);
   String? getLanguage();
@@ -14,6 +15,7 @@ abstract class LocalDataSource {
 }
 
 const _authToken = "authToken";
+const _user = "user";
 const _languagePrefs = "languagePrefs";
 const _themePrefs = "themePrefs";
 
@@ -32,7 +34,7 @@ class LocalDataSourceImpl implements LocalDataSource {
         return Future.value(false);
       }
     } on Exception catch (e) {
-      throw CacheException();
+      throw RemoteException(statusCode: e.hashCode, message: e.toString());
     }
   }
 
@@ -57,12 +59,17 @@ class LocalDataSourceImpl implements LocalDataSource {
   }
 
   @override
+  Future<void> removeUser() {
+    return sharedPreferences.remove(_user);
+  }
+
+  @override
   String? getAuthToken() {
     try {
       final String? jsonString = sharedPreferences.getString(_authToken);
       return jsonString;
     } on Exception catch (e) {
-      throw CacheException();
+      throw RemoteException(statusCode: e.hashCode, message: e.toString());
     }
   }
 
@@ -72,7 +79,7 @@ class LocalDataSourceImpl implements LocalDataSource {
       final String? jsonString = sharedPreferences.getString(_languagePrefs);
       return jsonString;
     } on Exception catch (e) {
-      throw CacheException();
+      throw RemoteException(statusCode: e.hashCode, message: e.toString());
     }
   }
 
@@ -82,7 +89,7 @@ class LocalDataSourceImpl implements LocalDataSource {
       final String? jsonString = sharedPreferences.getString(_themePrefs);
       return jsonString;
     } on Exception catch (e) {
-      throw CacheException();
+      throw RemoteException(statusCode: e.hashCode, message: e.toString());
     }
   }
 }
